@@ -1,37 +1,85 @@
-// src/pages/Home.tsx
-import { useState } from "react";
-import reactLogo from "../assets/react.svg";
-import viteLogo from "/vite.svg";
+import React from "react";
 
-const Home = () => {
-  const [count, setCount] = useState(0);
+import Hero from "../components/Hero";
+import UpcomingEvents from "../components/UpcomingEvents";
 
+const Home: React.FC = () => {
   return (
-    <div className="min-h-screen bg-neutral-900 flex flex-col text-white">
-      <main className="flex-grow flex flex-col items-center justify-center px-4 text-center">
-        <div className="flex space-x-8">
-          <a href="https://vite.dev" target="_blank" rel="noopener noreferrer">
-            <img src={viteLogo} className="w-20 h-20" alt="Vite logo" />
-          </a>
-          <a href="https://react.dev" target="_blank" rel="noopener noreferrer">
-            <img src={reactLogo} className="w-20 h-20" alt="React logo" />
-          </a>
-        </div>
-        <h2 className="mt-8 text-5xl font-extrabold">
-          Welcome to Your Project
+    <div className="bg-neutral-900 text-white">
+      {/* Hero Section */}
+      <section className="flex flex-col justify-center">
+        <Hero />
+      </section>
+
+      <section className="py-20 px-6 md:px-12 text-white">
+        <UpcomingEvents />
+      </section>
+
+      {/* Get Involved Section */}
+      <section
+        id="get-involved"
+        className="min-h-screen py-16 px-6 container mx-auto flex flex-col justify-center text-center"
+      >
+        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-8">
+          Get Involved
         </h2>
-        <p className="mt-4 text-lg max-w-xl">
-          This is a fancy homepage template using Vite, React, and Tailwind CSS.
+        <p className="max-w-3xl mx-auto text-lg text-gray-300 mb-8">
+          Ready to ride into action and help us keep our parks pristine? Whether
+          you want to volunteer, donate supplies, or simply share our mission,
+          your passion makes a difference. Take the next step and join our
+          dedicated crew.
         </p>
-        <div className="mt-8">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="px-8 py-4 bg-white text-indigo-600 font-semibold rounded-full shadow-xl hover:bg-gray-100 transition"
+        <div>
+          <a
+            href="#contact"
+            className="inline-block px-8 py-4 bg-teal-500 text-black font-semibold rounded-full hover:bg-teal-600 transition"
           >
-            Count is {count}
-          </button>
+            Sign Up as a Volunteer
+          </a>
         </div>
-      </main>
+      </section>
+
+      {/* Uncomment and expand additional sections as needed */}
+      {/*
+      <section id="portfolio" className="min-h-screen py-16 px-6 container mx-auto flex flex-col justify-center">
+        <h2 className="text-3xl font-bold text-center mb-6">Featured Projects</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="bg-neutral-800 p-6 rounded-lg">Project 1</div>
+          <div className="bg-neutral-800 p-6 rounded-lg">Project 2</div>
+          <div className="bg-neutral-800 p-6 rounded-lg">Project 3</div>
+        </div>
+      </section>
+
+      <section id="contact" className="min-h-screen py-16 px-6 container mx-auto flex flex-col justify-center">
+        <h2 className="text-3xl font-bold text-center mb-6">Get In Touch</h2>
+        <p className="max-w-3xl mx-auto text-lg text-gray-300 text-center mb-8">
+          Ready to elevate your online presence? Contact us today to discuss how we can build a better, cleaner skate community.
+        </p>
+        <form className="max-w-xl mx-auto">
+          <input
+            type="text"
+            placeholder="Your Name"
+            className="w-full p-3 mb-4 bg-neutral-800 rounded text-gray-300"
+          />
+          <input
+            type="email"
+            placeholder="Your Email"
+            className="w-full p-3 mb-4 bg-neutral-800 rounded text-gray-300"
+          />
+          <textarea
+            placeholder="Your Message"
+            className="w-full p-3 mb-4 bg-neutral-800 rounded text-gray-300"
+            rows={4}
+          ></textarea>
+          <button
+            type="submit"
+            className="w-full py-3 bg-teal-500 text-black font-semibold rounded hover:bg-teal-600 transition"
+          >
+            Send Message
+          </button>
+        </form>
+      </section>
+      */}
     </div>
   );
 };

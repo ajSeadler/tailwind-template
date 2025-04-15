@@ -1,9 +1,9 @@
 // src/App.tsx
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import About from "./pages/About";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import LearnMore from "./components/LearnMore";
 
 function App() {
   return (
@@ -12,7 +12,8 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/about" element={<LearnMore />} />
+          <Route path="/learn-more" element={<LearnMore />} />
         </Routes>
         <Footer />
       </Router>
