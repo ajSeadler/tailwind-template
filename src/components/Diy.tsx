@@ -66,22 +66,15 @@ const Diy = () => {
             <h2 className="text-2xl font-bold mb-2">
               Trash, Debris & Surface Cleaning
             </h2>
-            <p className="text-gray-400">
-              Nothing kills the vibe like trash and gravel. Let's clean it
-              right.
-            </p>
+            <p className="text-gray-400"></p>
           </div>
           <div className="w-full md:w-2/3 space-y-4 text-gray-300">
             <p>
               Bring heavy-duty trash bags, nitrile gloves, and a trash grabber.
               Sweep from the top down — ledges first, then flatground. A push
-              broom and a dustpan or leaf blower are essential. If available, a
-              power washer can restore grip on slippery surfaces.
+              broom and a dustpan or leaf blower are helpful..
             </p>
-            <p>
-              Separate recyclables when possible and dispose responsibly. Snap
-              before/after pics to motivate others to help next time.
-            </p>
+            <p>Separate recyclables when possible and dispose.</p>
           </div>
         </div>
 
@@ -104,21 +97,11 @@ const Diy = () => {
             <ul className="space-y-2 list-disc list-inside">
               <li>Mixing bucket & trowel</li>
               <li>Water, snacks, first aid</li>
-              <li>Pressure washer (if possible)</li>
-              <li>Phone for before/after pics</li>
             </ul>
           </div>
         </div>
 
         {/* Section 5 */}
-        <div className="flex flex-col gap-6 text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-white">Final Tips</h2>
-          <p className="text-gray-400">
-            Don’t try to fix everything at once. Work in layers, stay safe, and
-            involve your local crew. One day of work can give your park years of
-            life.
-          </p>
-        </div>
       </div>
     </section>
   );
