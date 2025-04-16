@@ -1,7 +1,7 @@
 import React from "react";
 
 import Hero from "../components/Hero";
-import UpcomingEvents from "../components/UpcomingEvents";
+// import UpcomingEvents from "../components/UpcomingEvents";
 
 const Home: React.FC = () => {
   return (
@@ -11,12 +11,12 @@ const Home: React.FC = () => {
         <Hero />
       </section>
 
-      <section className="py-20 px-6 md:px-12 text-white">
+      {/* <section className="py-20 px-6 md:px-12 text-white">
         <UpcomingEvents />
-      </section>
+      </section> */}
 
       {/* Get Involved Section */}
-      <section
+      {/* <section
         id="get-involved"
         className="min-h-screen py-16 px-6 container mx-auto flex flex-col justify-center text-center"
       >
@@ -37,7 +37,7 @@ const Home: React.FC = () => {
             Sign Up as a Volunteer
           </a>
         </div>
-      </section>
+      </section> */}
 
       {/* Uncomment and expand additional sections as needed */}
       {/*

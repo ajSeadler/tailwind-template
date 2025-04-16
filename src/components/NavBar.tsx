@@ -1,8 +1,16 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { Home, Info, FolderKanban, Mail, User, Menu, X } from "lucide-react";
+import { NavLink } from "react-router-dom";
+import {
+  Home,
+  Info,
+  FolderKanban,
+  Mail,
+  User,
+  Menu,
+  X,
+  Hammer,
+} from "lucide-react";
 import { PiBroomBold } from "react-icons/pi";
-
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
@@ -12,6 +20,11 @@ const navLinks = [
     to: "/projects",
     label: "Projects",
     icon: <FolderKanban className="w-4 h-4" />,
+  },
+  {
+    to: "/skateparks",
+    label: "Skateparks",
+    icon: <PiBroomBold className="w-4 h-4" />,
   },
   { to: "/contact", label: "Contact", icon: <Mail className="w-4 h-4" /> },
 ];
@@ -31,7 +44,7 @@ const Navbar: React.FC = () => {
     <nav className="w-full backdrop-blur bg-neutral-900 border-b border-gray-800 shadow-[0_1px_1px_rgba(255,255,255,0.05)] z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link
+        <NavLink
           to="/"
           className="flex items-center gap-2 text-2xl font-semibold tracking-tight text-white hover:text-teal-400 transition-colors duration-300"
         >
@@ -39,48 +52,42 @@ const Navbar: React.FC = () => {
           <span className="bg-gradient-to-r from-teal-300 via-white to-teal-400 bg-clip-text text-transparent">
             OK<span className="text-white">Skateparks</span>
           </span>
-        </Link>
+        </NavLink>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-6 text-sm text-gray-300 font-medium">
+        <div className="hidden md:flex items-center gap-6 text-sm font-medium">
           {navLinks.map((link) => (
-            <Link
+            <NavLink
               key={link.to}
               to={link.to}
-              className="flex items-center gap-1 hover:text-teal-400 transition-colors duration-200"
+              className={({ isActive }) =>
+                `flex items-center gap-1 transition-colors duration-200 ${
+                  isActive
+                    ? "text-teal-400"
+                    : "text-gray-300 hover:text-teal-400"
+                }`
+              }
             >
               {link.icon}
               {link.label}
-            </Link>
+            </NavLink>
           ))}
 
           {/* Profile Button as a Dropdown trigger */}
           <div className="relative group">
-            <button className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-teal-300 text-black hover:bg-teal-500 hover:shadow-lg transition-all duration-200 focus:outline-none">
-              <User className="w-4 h-4" />
-              <span>Profile</span>
-            </button>
-            {/* Dropdown Menu – can be enhanced for keyboard & focus management */}
-            <div className="absolute right-0 mt-2 w-48 bg-neutral-900 border border-gray-800 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none group-hover:pointer-events-auto z-50">
-              <Link
-                to="/profile"
-                className="block px-4 py-2 hover:bg-neutral-800 transition-colors"
-              >
-                View Profile
-              </Link>
-              <Link
-                to="/settings"
-                className="block px-4 py-2 hover:bg-neutral-800 transition-colors"
-              >
-                Settings
-              </Link>
-              <Link
-                to="/logout"
-                className="block px-4 py-2 hover:bg-neutral-800 transition-colors"
-              >
-                Logout
-              </Link>
-            </div>
+            <NavLink
+              to="/diy"
+              className={({ isActive }) =>
+                `inline-flex items-center gap-1 px-3 py-1.5 rounded-xl transition-all duration-200 focus:outline-none ${
+                  isActive
+                    ? "bg-teal-400 text-black"
+                    : "bg-teal-300 text-black hover:bg-teal-500 hover:shadow-lg"
+                }`
+              }
+            >
+              <Hammer className="w-4 h-4" />
+              <span>DIY</span>
+            </NavLink>
           </div>
         </div>
 
@@ -111,24 +118,36 @@ const Navbar: React.FC = () => {
           >
             <div className="px-6 py-4 flex flex-col gap-4">
               {navLinks.map((link) => (
-                <Link
+                <NavLink
                   key={link.to}
                   to={link.to}
-                  className="flex items-center gap-2 text-gray-300 hover:text-teal-400 transition-colors duration-200"
+                  className={({ isActive }) =>
+                    `flex items-center gap-2 transition-colors duration-200 ${
+                      isActive
+                        ? "text-teal-400"
+                        : "text-gray-300 hover:text-teal-400"
+                    }`
+                  }
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.icon}
                   {link.label}
-                </Link>
+                </NavLink>
               ))}
-              <Link
-                to="/profile"
-                className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-teal-300 text-black hover:bg-teal-500 transition-all duration-200"
+              <NavLink
+                to="/diy"
+                className={({ isActive }) =>
+                  `flex items-center gap-2 px-3 py-1.5 rounded-xl transition-all duration-200 ${
+                    isActive
+                      ? "bg-teal-400 text-black"
+                      : "bg-teal-300 text-black hover:bg-teal-500"
+                  }`
+                }
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <User className="w-4 h-4" />
-                <span>Profile</span>
-              </Link>
+                <span>DIY</span>
+              </NavLink>
             </div>
           </motion.div>
         )}

@@ -30,7 +30,7 @@ const LearnMore: React.FC = () => {
             </p>
             <p className="text-lg text-gray-300 mt-2">
               Know a skate spot that’s been overgrown or worn down over time?
-              We’ll take care of the cleanup.
+              Let's fix it up!
             </p>
           </div>
           <div className="lg:w-1/2 flex flex-col md:flex-row gap-6">
@@ -61,11 +61,6 @@ const LearnMore: React.FC = () => {
               condition. However, there are cases of neglect or vandalism in
               some parks. The idea of this 'organization' is to help reduce the
               amount of damage, whether it be from natural causes or vandalism.
-            </p>
-
-            <p className="text-lg text-gray-300 mt-2">
-              Know a skate spot that’s been overgrown or worn down over time?
-              We’ll take care of the cleanup.
             </p>
           </div>
           <div className="lg:w-1/2 flex flex-col md:flex-row gap-6">
