@@ -1,4 +1,3 @@
-import React from "react";
 import { Github, Twitter, Mail, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 

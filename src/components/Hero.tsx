@@ -24,7 +24,8 @@ const Hero: React.FC = () => {
 
         {/* Heading */}
         <h1 className="mb-4 sm:mb-6 text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight text-gray-900 dark:text-white mt-15">
-          We clean skateparks.
+          We clean skateparks <span className="text-teal-500">(</span>and spots
+          <span className="text-teal-500">)</span>.
         </h1>
 
         {/* Subheading */}
