@@ -13,17 +13,17 @@ const Hero: React.FC = () => {
           className="inline-flex items-center justify-between p-3 pr-4 mb-6 sm:mb-8 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
           role="alert"
         >
-          <span className="text-xs bg-teal-500 rounded-full text-white px-3 py-1.5 mr-3">
+          <span className="text-xs bg-teal-500 rounded-full text-white  sm:px-4 px-2 py-1.5 mr-3">
             New
           </span>
-          <span className="text-sm font-medium">
+          <span className="text-xs font-medium  sm:text-sm">
             We've just launched — take a look at what's new
           </span>
           <IoArrowForward className="ml-2 w-5 h-5" />
         </a>
 
         {/* Heading */}
-        <h1 className="mb-4 sm:mb-6 text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight text-gray-900 dark:text-white mt-15">
+        <h1 className="mb-4 sm:mb-6 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight text-gray-900 dark:text-white mt-15">
           We clean skateparks <span className="text-teal-500">(</span>and spots
           <span className="text-teal-500">)</span>.
         </h1>

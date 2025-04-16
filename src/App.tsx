@@ -7,6 +7,7 @@ import LearnMore from "./components/LearnMore";
 import Skateparks from "./pages/Skateparks";
 import Projects from "./components/Projects";
 import Contact from "./pages/Contact";
+import Diy from "./components/Diy";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/skateparks" element={<Skateparks />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/diy" element={<Diy />} />
         </Routes>
         <Footer />
       </Router>

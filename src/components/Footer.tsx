@@ -1,4 +1,5 @@
 import { Github, Twitter, Mail, Linkedin } from "lucide-react";
+import { PiBroomBold } from "react-icons/pi";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -8,11 +9,11 @@ const Footer = () => {
         {/* Left: Logo and tagline */}
         <div>
           <h2 className="text-2xl font-bold text-white tracking-tight">
-            <span className="text-teal-400">Test</span>Site
+            <PiBroomBold className="w-7 h-7 text-teal-400 drop-shadow-md" />
+            <span className="bg-gradient-to-r from-teal-300 via-white to-teal-400 bg-clip-text text-transparent">
+              OK<span className="text-white">Skateparks</span>
+            </span>
           </h2>
-          <p className="mt-2 text-sm text-gray-500">
-            Crafting clean and modern digital experiences.
-          </p>
         </div>
 
         {/* Center: Quick Links */}
