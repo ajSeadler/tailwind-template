@@ -8,8 +8,7 @@ const Diy = () => {
             DIY Spot Clean Up
           </h1>
           <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-            Everything you need to know to safely and effectively clean, repair,
-            and revive your local skate spot.
+            Some tips to help get started.
           </p>
         </header>
 

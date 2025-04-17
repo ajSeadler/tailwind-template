@@ -38,4 +38,19 @@ export const skateparks: Skatepark[] = [
     imageUrl:
       "https://assets.simpleviewinc.com/simpleview/image/upload/c_limit,q_75,w_1200/v1/crm/visitedmondok/Mathis-Skate-Park_B28E48AE-A92F-03A1-C71090A47EBDF080-b28e3e7900b7dd8_b28e51cc-e337-0a66-59ed6aa2a3abb57f.jpg",
   },
+  {
+    name: "HC Shillings Skatepark",
+    address: "539 SE 25th St, Oklahoma City, OK 73129",
+    description:
+      "Small modern concrete park. Features a gap, quarterpipes, a ledge, box, handrail, and a hip.",
+    imageUrl: "../images/shillings.JPG",
+  },
+  {
+    name: "South Lakes Skatepark",
+    address: "4302 SW 119th, Oklahoma City, OK 73137",
+    description:
+      "Medium sized concrete park with plenty of boxes, stairs, flatbars, handrails, hips, ledges, etc.",
+    imageUrl:
+      "https://www.concretedisciples.com/media/reviews/photos/original/31/92/5e/south-lakes-skate-court-86-1435681543.webp",
+  },
 ];

@@ -1,5 +1,5 @@
 import React from "react";
-import OurTeam from "./OurTeam";
+// import OurTeam from "./OurTeam";
 import UpcomingEvents from "./UpcomingEvents";
 
 const LearnMore: React.FC = () => {
@@ -79,7 +79,7 @@ const LearnMore: React.FC = () => {
       </section>
 
       {/* Section 5: Call to Action */}
-      <section className="py-20 px-6 md:px-12">
+      {/* <section className="py-20 px-6 md:px-12">
         <div className="max-w-7xl mx-auto text-center">
           <h3 className="text-4xl font-bold mb-6 text-white">
             Join Our Movement
@@ -96,11 +96,11 @@ const LearnMore: React.FC = () => {
             Sign Up Now
           </a>
         </div>
-      </section>
+      </section> */}
       {/* Section 4: Meet The Team */}
-      <section className="py-20 bg-neutral-900 px-6 md:px-12">
+      {/* <section className="py-20 bg-neutral-900 px-6 md:px-12">
         <OurTeam />
-      </section>
+      </section> */}
     </div>
   );
 };

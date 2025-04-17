@@ -8,6 +8,7 @@ import Skateparks from "./pages/Skateparks";
 import Projects from "./components/Projects";
 import Contact from "./pages/Contact";
 import Diy from "./components/Diy";
+import SkateparkPage from "./pages/SkateparkPage"; // ⬅️ Import the new component
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/learn-more" element={<LearnMore />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/skateparks" element={<Skateparks />} />
+          <Route path="/skateparks/:id" element={<SkateparkPage />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/diy" element={<Diy />} />
         </Routes>
