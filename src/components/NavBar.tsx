@@ -9,6 +9,7 @@ import {
   Menu,
   X,
   Hammer,
+  Trash2,
 } from "lucide-react";
 import { PiBroomBold } from "react-icons/pi";
 import { motion, AnimatePresence } from "framer-motion";
@@ -18,7 +19,7 @@ const navLinks = [
   { to: "/about", label: "About", icon: <Info className="w-4 h-4" /> },
   {
     to: "/projects",
-    label: "Projects",
+    label: "Events",
     icon: <FolderKanban className="w-4 h-4" />,
   },
   {
@@ -41,17 +42,14 @@ const Navbar: React.FC = () => {
   const toggleMobileMenu = () => setMobileMenuOpen((prev) => !prev);
 
   return (
-    <nav className="w-full backdrop-blur bg-neutral-900 border-b border-gray-800 shadow-[0_1px_1px_rgba(255,255,255,0.05)] z-50">
+    <nav className="w-full backdrop-blur bg-neutral-900 border-b border-neutral-700 shadow-[0_1px_1px_rgba(255,255,255,0.05)] z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <NavLink
           to="/"
           className="flex items-center gap-2 text-2xl font-semibold tracking-tight text-white hover:text-teal-400 transition-colors duration-300"
         >
-          <PiBroomBold className="w-7 h-7 text-teal-400 drop-shadow-md" />
-          <span className="bg-gradient-to-r from-teal-300 via-white to-teal-400 bg-clip-text text-transparent">
-            OK<span className="text-white">Skateparks</span>
-          </span>
+          <Trash2 className="w-7 h-7 text-teal-400 drop-shadow-md" />
         </NavLink>
 
         {/* Desktop Navigation */}
@@ -61,7 +59,7 @@ const Navbar: React.FC = () => {
               key={link.to}
               to={link.to}
               className={({ isActive }) =>
-                `flex items-center gap-1 transition-colors duration-200 ${
+                `flex items-center font-bold gap-1 transition-colors duration-200 ${
                   isActive
                     ? "text-teal-400"
                     : "text-gray-300 hover:text-teal-400"

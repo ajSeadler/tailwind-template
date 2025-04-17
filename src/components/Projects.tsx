@@ -9,7 +9,7 @@ const Projects: React.FC = () => {
         {/* Header */}
         <header className="text-center mb-12">
           <h1 className="text-4xl font-bold text-teal-400">
-            Projects & Cleanups
+            Events & Cleanups
           </h1>
           <p className="text-gray-400 mt-3 text-sm sm:text-base">
             From community-led cleanups to skatepark improvements, here's what’s

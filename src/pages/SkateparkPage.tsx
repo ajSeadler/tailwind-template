@@ -41,7 +41,7 @@ const SkateparkPage: React.FC = () => {
             className="inline-flex items-center text-sm text-teal-500 hover:text-teal-400 transition"
           >
             <ArrowLeft className="w-4 h-4 mr-1" />
-            Back to all skateparks
+            All skateparks
           </Link>
         </div>
 

@@ -48,18 +48,27 @@ const SkateparkCard: React.FC<Skatepark> = ({
 
 const SkateparkList: React.FC = () => {
   const [query, setQuery] = useState("");
+  const [cityFilter, setCityFilter] = useState<string | null>(null);
 
-  const filteredSkateparks = skateparks.filter((park) =>
-    `${park.name} ${park.address} ${park.description}`
+  const filteredSkateparks = skateparks.filter((park) => {
+    const matchesQuery = `${park.name} ${park.address} ${park.description}`
       .toLowerCase()
-      .includes(query.toLowerCase())
-  );
+      .includes(query.toLowerCase());
+
+    const matchesCity =
+      !cityFilter ||
+      park.address.toLowerCase().includes(cityFilter.toLowerCase());
+
+    return matchesQuery && matchesCity;
+  });
+
+  const cities = ["Oklahoma City", "Edmond", "Norman"];
 
   return (
     <div className="bg-neutral-950 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Search Bar */}
-        <div className="max-w-xl mx-auto mb-12 relative">
+        <div className="max-w-xl mx-auto mb-8 relative">
           <Search className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
           <input
             type="text"
@@ -68,6 +77,23 @@ const SkateparkList: React.FC = () => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
+        </div>
+
+        {/* Filter Buttons */}
+        <div className="flex justify-center gap-4 mb-12 flex-wrap">
+          {cities.map((city) => (
+            <button
+              key={city}
+              onClick={() => setCityFilter(cityFilter === city ? null : city)}
+              className={`px-5 py-2 rounded-xl font-medium transition-all shadow-md ${
+                cityFilter === city
+                  ? "bg-teal-500 text-white"
+                  : "bg-neutral-800 text-gray-300 hover:bg-neutral-700"
+              }`}
+            >
+              {city}
+            </button>
+          ))}
         </div>
 
         {/* Results */}
