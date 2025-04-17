@@ -8,12 +8,15 @@ import Skateparks from "./pages/Skateparks";
 import Projects from "./components/Projects";
 import Contact from "./pages/Contact";
 import Diy from "./components/Diy";
-import SkateparkPage from "./pages/SkateparkPage"; // ⬅️ Import the new component
+import SkateparkPage from "./pages/SkateparkPage";
+import New from "./pages/new";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <>
       <Router>
+        <ScrollToTop />
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -24,6 +27,7 @@ function App() {
           <Route path="/skateparks/:id" element={<SkateparkPage />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/diy" element={<Diy />} />
+          <Route path="/new" element={<New />} />
         </Routes>
         <Footer />
       </Router>

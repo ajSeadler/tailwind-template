@@ -9,7 +9,7 @@ const LearnMore: React.FC = () => {
       <section className="py-10 px-6 md:px-12">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
           <div className="lg:w-1/2">
-            <h2 className="text-5xl font-bold text-white mb-6">
+            <h2 className="text-5xl font-bold text-teal-400 mb-6">
               We're not reinventing the wheel.
             </h2>
             <p className="text-xl text-gray-300 mb-4">

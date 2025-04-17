@@ -8,8 +8,8 @@ const Hero: React.FC = () => {
     <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
       <div className="max-w-screen-xl mx-auto text-center mb-20">
         {/* Banner */}
-        <a
-          href="#"
+        <Link
+          to="/new"
           className="inline-flex items-center justify-between p-3 pr-4 mb-6 sm:mb-8 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
           role="alert"
         >
@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
             We've just launched — take a look at what's new
           </span>
           <IoArrowForward className="ml-2 w-5 h-5" />
-        </a>
+        </Link>
 
         {/* Heading */}
         <h1 className="mb-4 sm:mb-6 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight text-gray-900 dark:text-white mt-15">
