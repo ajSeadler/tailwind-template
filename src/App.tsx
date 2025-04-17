@@ -9,7 +9,7 @@ import Projects from "./components/Projects";
 import Contact from "./pages/Contact";
 import Diy from "./components/Diy";
 import SkateparkPage from "./pages/SkateparkPage";
-import New from "./pages/new";
+import New from "./pages/New";
 import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
