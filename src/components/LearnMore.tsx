@@ -74,19 +74,36 @@ const LearnMore: React.FC = () => {
         </div>
       </section>
 
-      <section className="bg-neutral-900 text-white py-16 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-red-500 mb-6">
-            Vandalism at Skateparks
-          </h2>
-          <p className="text-gray-400 mb-10 text-sm sm:text-base">
-            Damage to public skateparks not only ruins the experience for
-            skaters — it puts people at risk for injury. Here’s one example of
-            vandalism:
-          </p>
+      <section className="py-10 px-6 md:px-12">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+          {/* Text content */}
+          <div className="lg:w-1/2">
+            <h2 className="text-3xl font-bold text-red-500 mb-6">
+              Vandalism at Skateparks
+            </h2>
+            <p className="text-gray-300 mb-4 text-base sm:text-lg">
+              Damage to public skateparks not only ruins the experience for
+              skaters — it puts people at risk for injury. Here’s one example of
+              vandalism that occurred at Mat Hoffman Park.
+            </p>
+            <div className="bg-neutral-800 border border-red-600 rounded-2xl p-6 shadow-lg mt-6">
+              <div className="flex items-center gap-3 mb-3">
+                <AlertTriangle className="w-6 h-6 text-red-500 animate-pulse" />
+                <h3 className="text-lg font-semibold text-white">
+                  Cement Poured in Drains
+                </h3>
+              </div>
+              <p className="text-gray-300 text-sm sm:text-base">
+                Entire bags of cement were poured into the bowl drains.
+                Fortunately, skaters acted quickly to repair the damage. Keep in
+                mind, the city will only do so much — many park issues end up in
+                the hands of skaters if we want them fixed fast.
+              </p>
+            </div>
+          </div>
 
           {/* Images */}
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="lg:w-1/2 grid gap-6 sm:grid-cols-2">
             <div className="overflow-hidden rounded-xl shadow-md">
               <img
                 src="/images/hoffman-damage.jpg"
@@ -100,24 +117,6 @@ const LearnMore: React.FC = () => {
                 alt="Drain covered with cement at Mat Hoffman Park"
                 className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
               />
-            </div>
-          </div>
-
-          <div className="bg-neutral-800 border border-red-600 rounded-2xl p-8 shadow-lg mb-10 mt-5">
-            <div className="flex flex-col items-center gap-4">
-              <div className="flex items-center gap-3">
-                <AlertTriangle className="w-8 h-8 mx-auto text-red-500 animate-pulse" />
-                <h3 className="text-lg font-semibold text-white">
-                  Cement Poured in Drains
-                </h3>
-              </div>
-              <p className="text-gray-300 text-sm sm:text-base text-center max-w-lg">
-                Entire bags of cement poured into the bowl drains at Mat Hoffman
-                Park. Thankfully, the damage was quickly repaired with the help
-                of a couple skaters. Keep in mind, the city will only do so much
-                — many park issues end up in the hands of skaters if we want
-                them fixed fast.
-              </p>
             </div>
           </div>
         </div>

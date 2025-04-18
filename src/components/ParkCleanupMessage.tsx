@@ -3,24 +3,21 @@ import { AlertTriangle } from "lucide-react";
 
 const ParkCleanupMessage: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-neutral-900 px-4">
+    <div className="flex items-center justify-center bg-neutral-900 px-4">
       <div className="bg-neutral-800 border border-neutral-700 rounded-2xl shadow-2xl p-10 max-w-lg text-center space-y-6">
         <AlertTriangle className="w-12 h-12 mx-auto text-amber-500 animate-pulse" />
 
         <h2 className="text-3xl font-semibold text-white">Pause.</h2>
         <p className="text-lg text-gray-300">
           If this message is still here, that means we haven't had our first
-          park cleanup yet!
+          park cleanup yet
         </p>
 
         <p className="text-sm text-gray-400">
-          We need your help to get started! Once word spreads and we gather a
-          small crew, we'll get to work! In the meantime, consider picking up
-          trash around your local parks whenever you're there skating.
+          Once word spreads and we gather a small crew, we'll get to work! In
+          the meantime, consider picking up trash around your local parks
+          whenever you're there skating.
         </p>
-        <button className="inline-flex items-center gap-2 bg-teal-500 hover:bg-teal-600 text-white font-medium px-6 py-3 rounded-full transition">
-          Get Involved
-        </button>
 
         <div className="pt-6 border-t border-neutral-700 space-y-2">
           <h3 className="text-xl font-semibold text-white">

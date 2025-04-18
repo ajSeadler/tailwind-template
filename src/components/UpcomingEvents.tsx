@@ -9,7 +9,7 @@ const UpcomingEvents: React.FC = () => {
 
       <div className="w-full divide-y divide-neutral-800 border border-neutral-700 rounded-xl overflow-hidden">
         {/* Column Headers (hidden on xs) */}
-        <div className="hidden sm:grid grid-cols-3 text-sm uppercase tracking-wider text-gray-500 bg-neutral-800 px-6 py-3">
+        <div className="hidden sm:grid grid-cols-3 text-sm uppercase tracking-wider text-neutral-800 font-extrabold bg-amber-300 px-6 py-3">
           <span>Location</span>
           <span>Date</span>
           <span>Time</span>
