@@ -1,6 +1,5 @@
 import React from "react";
 // import OurTeam from "./OurTeam";
-import UpcomingEvents from "./UpcomingEvents";
 import { AlertTriangle } from "lucide-react";
 
 const LearnMore: React.FC = () => {
@@ -121,11 +120,6 @@ const LearnMore: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Section 3: Upcoming Events */}
-      <section className="py-20 px-6 md:px-12 text-white">
-        <UpcomingEvents />
       </section>
 
       {/* Section 5: Call to Action */}

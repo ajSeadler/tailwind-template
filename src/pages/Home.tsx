@@ -5,7 +5,7 @@ import Hero from "../components/Hero";
 
 const Home: React.FC = () => {
   return (
-    <div className="bg-neutral-900 text-white">
+    <div className="bg-neutral-900 text-white h-screen">
       {/* Hero Section */}
       <section className="flex flex-col justify-center">
         <Hero />

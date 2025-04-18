@@ -1,19 +1,31 @@
-// components/SkateparkPage.tsx
+// src/components/SkateparkPage.tsx
+import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { skateparks } from "../data/skateparks";
-import { MapPin, ArrowLeft } from "lucide-react";
+import { events, Event } from "../data/events";
+import { MapPin, ArrowLeft, Calendar as CalIcon } from "lucide-react";
+
+const formatSlug = (name: string) =>
+  name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+
+const findNextEvent = (parkId: string): Event | null => {
+  const today = new Date();
+  const upcoming = events
+    .filter((e) => e.id === parkId && e.date !== "TBD")
+    .map((e) => ({ ...e, parsed: new Date(e.date) }))
+    .filter((e) => e.parsed >= today)
+    .sort((a, b) => a.parsed.getTime() - b.parsed.getTime());
+  return upcoming.length ? upcoming[0] : null;
+};
 
 const SkateparkPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-
-  const formattedId = id?.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-  const skatepark = skateparks.find(
-    (p) => p.name.toLowerCase().replace(/[^a-z0-9]+/g, "-") === formattedId
-  );
+  const formattedId = id?.toLowerCase().replace(/[^a-z0-9]+/g, "-") || "";
+  const skatepark = skateparks.find((p) => formatSlug(p.name) === formattedId);
 
   if (!skatepark) {
     return (
-      <div className="min-h-screen flex flex-col justify-center items-center text-gray-300 bg-neutral-900 px-4">
+      <div className="min-h-screen flex flex-col justify-center items-center text-gray-300 px-4">
         <h1 className="text-4xl font-bold text-red-400 mb-4">
           Skatepark not found
         </h1>
@@ -31,6 +43,16 @@ const SkateparkPage: React.FC = () => {
     );
   }
 
+  const nextEvent = findNextEvent(formattedId);
+  const formattedDate =
+    nextEvent && nextEvent.date !== "TBD"
+      ? new Date(nextEvent.date).toLocaleDateString("en-US", {
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+        })
+      : "TBD";
+
   return (
     <div className="min-h-screen bg-neutral-900 text-white">
       <div className="max-w-5xl mx-auto px-6 py-12">
@@ -46,9 +68,17 @@ const SkateparkPage: React.FC = () => {
         </div>
 
         {/* Title */}
-        <h1 className="text-4xl md:text-5xl font-extrabold mb-6 text-white tracking-tight">
+        <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-white tracking-tight">
           {skatepark.name}
         </h1>
+
+        {/* Next Cleanup */}
+        <div className="flex items-center mb-8 text-gray-300 text-base md:text-lg">
+          <CalIcon className="w-5 h-5 text-teal-400 mr-2" />
+          {nextEvent
+            ? `Next cleanup: ${formattedDate} @ ${nextEvent.time}`
+            : "Next cleanup: TBD"}
+        </div>
 
         {/* Image */}
         <div className="rounded-2xl overflow-hidden shadow-2xl border border-neutral-800 mb-10">

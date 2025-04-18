@@ -1,6 +1,7 @@
 import React from "react";
 import UpcomingEvents from "./UpcomingEvents";
-import { Calendar, Hammer, Users, PartyPopper, Lightbulb } from "lucide-react";
+import { Calendar, Users, PartyPopper, Lightbulb, Share2 } from "lucide-react";
+import { FiTwitter, FiInstagram } from "react-icons/fi";
 
 const Projects: React.FC = () => {
   return (
@@ -16,6 +17,11 @@ const Projects: React.FC = () => {
             on deck.
           </p>
         </header>
+
+        {/* Upcoming Events */}
+        <section className="mb-16">
+          <UpcomingEvents />
+        </section>
 
         {/* How it works */}
         <section className="mb-16">
@@ -43,25 +49,37 @@ const Projects: React.FC = () => {
           </ul>
         </section>
 
-        {/* Upcoming Events */}
+        {/* Social Updates Info */}
         <section className="mb-16">
-          <UpcomingEvents />
+          <div className="flex items-center p-4 rounded-lg border-l-4 border-teal-400">
+            <Share2 className="w-6 h-6 text-teal-400 mr-3" />
+            <p className="flex-1 text-gray-300 text-sm sm:text-base">
+              Stay in the loop—follow our cleanup progress and event highlights
+              on social media!
+            </p>
+            <div className="flex items-center space-x-4">
+              <a
+                href="https://twitter.com/yourhandle"
+                aria-label="Twitter"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FiTwitter className="w-5 h-5 text-teal-400 hover:text-teal-300 transition" />
+              </a>
+              <a
+                href="https://instagram.com/yourhandle"
+                aria-label="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FiInstagram className="w-5 h-5 text-teal-400 hover:text-teal-300 transition" />
+              </a>
+            </div>
+          </div>
         </section>
 
         {/* Get Involved CTA */}
-        <section className="mb-16 text-center">
-          <h2 className="text-2xl font-semibold text-teal-300 mb-4">
-            Want to Host a Cleanup?
-          </h2>
-          <p className="text-gray-400 mb-4 text-sm sm:text-base">
-            We’re here to support you! Whether it's your local DIY spot or a
-            city park, you can make a difference.
-          </p>
-          <button className="bg-teal-500 hover:bg-teal-600 text-white font-semibold px-6 py-2 rounded-xl transition-all inline-flex items-center gap-2">
-            <Hammer className="w-5 h-5" />
-            Start a Project
-          </button>
-        </section>
+        {/* ...your CTA goes here... */}
       </div>
     </div>
   );
