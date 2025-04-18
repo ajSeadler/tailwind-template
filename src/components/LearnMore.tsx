@@ -80,8 +80,8 @@ const LearnMore: React.FC = () => {
           </h2>
           <p className="text-gray-400 mb-10 text-sm sm:text-base">
             Damage to public skateparks not only ruins the experience for
-            skaters — it puts people at risk for severe injury. Here’s one
-            example of vandalism:
+            skaters — it puts people at risk for injury. Here’s one example of
+            vandalism:
           </p>
 
           {/* Images */}
@@ -111,11 +111,11 @@ const LearnMore: React.FC = () => {
                 </h3>
               </div>
               <p className="text-gray-300 text-sm sm:text-base text-center max-w-lg">
-                Vandals poured entire bags of cement into the bowl drains at Mat
-                Hoffman Park. Thankfully, the damage was quickly repaired with
-                the help of dedicated skaters. Keep in mind, the city can only
-                respond so quickly — many park issues end up in the hands of
-                skaters if we want them fixed fast.
+                Entire bags of cement poured into the bowl drains at Mat Hoffman
+                Park. Thankfully, the damage was quickly repaired with the help
+                of a couple skaters. Keep in mind, the city will only do so much
+                — many park issues end up in the hands of skaters if we want
+                them fixed fast.
               </p>
             </div>
           </div>
