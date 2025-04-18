@@ -26,7 +26,8 @@ const LearnMore: React.FC = () => {
               with time, even the best take a beating. Our mission is to keep
               these community spaces in top shape, whether it’s through routine
               clean-ups, removing trash, or even fixing small cracks and
-              imperfections.
+              imperfections. We do not consider graffitti vandalism unless it
+              includes hate speech.
             </p>
             <p className="text-lg text-gray-300 mt-2">
               Know a skate spot that’s been overgrown or worn down over time?
