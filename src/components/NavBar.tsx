@@ -49,7 +49,7 @@ const Navbar: React.FC = () => {
           className="flex items-center gap-2 text-white text-xl font-semibold"
         >
           <Trash2 className="w-6 h-6 text-teal-400" />
-          <span className="hidden sm:inline">SkateApp</span>
+          <span className="hidden sm:inline">OKCS</span>
         </NavLink>
 
         {/* Right: Login + CTA + Hamburger */}
