@@ -4,7 +4,7 @@ import { Github, Twitter, Mail, Linkedin } from "lucide-react";
 import { routes } from "../config/routes";
 
 const Footer: React.FC = () => (
-  <footer className="bg-neutral-900 border-t border-neutral-700 text-gray-400 h-auto">
+  <footer className="bg-neutral-900 border-t border-neutral-700 text-gray-400">
     <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
       {/* Brand / Logo */}
       <div className="space-y-3">
