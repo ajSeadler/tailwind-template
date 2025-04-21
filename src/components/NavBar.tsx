@@ -8,11 +8,18 @@ import {
   User,
   Menu,
   X,
-  // Hammer,
   Trash2,
 } from "lucide-react";
 import { PiBroomBold } from "react-icons/pi";
-import { motion, AnimatePresence } from "framer-motion";
+import { FaInstagram, FaYoutube } from "react-icons/fa";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useTransform,
+  useSpring,
+  Variants,
+} from "framer-motion";
 
 const navLinks = [
   { to: "/", label: "Home", icon: <Home className="w-4 h-4" /> },
@@ -30,20 +37,42 @@ const navLinks = [
   { to: "/contact", label: "Contact", icon: <Mail className="w-4 h-4" /> },
 ];
 
-const mobileMenuVariants = {
-  hidden: { opacity: 0, y: "-100%" },
-  visible: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: "-100%" },
+// stagger container for desktop links
+const linkContainer: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08 } },
+};
+
+// individual link pop‑in
+const linkItem: Variants = {
+  hidden: { opacity: 0, y: -10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", stiffness: 300, damping: 24 },
+  },
 };
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const toggleMobileMenu = () => setMobileMenuOpen((prev) => !prev);
+  const { scrollY } = useScroll();
+
+  // map scrollY [0,150]px → bgColor from 20% to 90% opacity
+  const bgColor = useTransform(
+    scrollY,
+    [0, 150],
+    ["rgba(17,24,39,0.2)", "rgba(17,24,39,0.9)"]
+  );
+  // smooth it with a spring
+  const springBg = useSpring(bgColor, { stiffness: 100, damping: 20 });
 
   return (
-    <header className="bg-neutral-900 border-b border-neutral-700 backdrop-blur z-50">
+    <motion.header
+      style={{ backgroundColor: springBg }}
+      className="sticky top-0 z-50 backdrop-blur border-b border-neutral-700"
+    >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between">
-        {/* Left: Logo */}
+        {/* Logo */}
         <NavLink
           to="/"
           className="flex items-center gap-2 text-white text-xl font-semibold"
@@ -52,23 +81,36 @@ const Navbar: React.FC = () => {
           <span className="hidden sm:inline">OKCS</span>
         </NavLink>
 
-        {/* Right: Login + CTA + Hamburger */}
-        <div className="flex items-center gap-2 md:order-2">
-          <NavLink
-            to="/login"
-            className="text-white text-sm px-4 py-2 rounded-md hover:bg-neutral-800 transition"
+        {/* Social icons + mobile menu button */}
+        <div className="flex items-center gap-4 md:order-2">
+          <motion.a
+            href="https://instagram.com/yourpage"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            variants={linkItem}
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
+            className="text-white"
           >
-            Log in
-          </NavLink>
-          <NavLink
-            to="/register"
-            className="bg-teal-500 text-black text-sm px-4 py-2 rounded-md hover:bg-teal-600 transition font-semibold"
+            <FaInstagram className="w-5 h-5" />
+          </motion.a>
+          <motion.a
+            href="https://youtube.com/yourchannel"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube"
+            variants={linkItem}
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
+            className="text-white"
           >
-            Get Started
-          </NavLink>
+            <FaYoutube className="w-5 h-5" />
+          </motion.a>
+
           <button
-            onClick={toggleMobileMenu}
-            className="md:hidden text-gray-300 ml-2"
+            onClick={() => setMobileMenuOpen((v) => !v)}
+            className="md:hidden text-gray-300"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
@@ -79,28 +121,17 @@ const Navbar: React.FC = () => {
           </button>
         </div>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex md:order-1 w-full md:w-auto items-center justify-center mt-4 md:mt-0">
-          <ul className="flex flex-col md:flex-row md:space-x-8 text-sm font-bold">
-            {navLinks.map((link) => (
-              <li key={link.to}>
-                <NavLink
-                  to={link.to}
-                  className={({ isActive }) =>
-                    `flex items-center gap-1 py-2 md:py-0 transition-colors ${
-                      isActive
-                        ? "text-teal-400"
-                        : "text-gray-300 hover:text-teal-400"
-                    }`
-                  }
-                >
-                  {link.label}
-                </NavLink>
-              </li>
-            ))}
-            <li>
+        {/* Desktop links */}
+        <motion.ul
+          className="hidden md:flex md:order-1 w-full md:w-auto items-center justify-center mt-4 md:mt-0 space-x-8 text-sm font-bold"
+          initial="hidden"
+          animate="visible"
+          variants={linkContainer}
+        >
+          {navLinks.map((link) => (
+            <motion.li key={link.to} variants={linkItem}>
               <NavLink
-                to="/diy"
+                to={link.to}
                 className={({ isActive }) =>
                   `flex items-center gap-1 py-2 md:py-0 transition-colors ${
                     isActive
@@ -109,22 +140,34 @@ const Navbar: React.FC = () => {
                   }`
                 }
               >
-                {/* <Hammer className="w-4 h-4" /> */}
-                DIY
+                {link.label}
               </NavLink>
-            </li>
-          </ul>
-        </div>
+            </motion.li>
+          ))}
+          <motion.li variants={linkItem}>
+            <NavLink
+              to="/diy"
+              className={({ isActive }) =>
+                `flex items-center gap-1 py-2 md:py-0 transition-colors ${
+                  isActive
+                    ? "text-teal-400"
+                    : "text-gray-300 hover:text-teal-400"
+                }`
+              }
+            >
+              DIY
+            </NavLink>
+          </motion.li>
+        </motion.ul>
       </nav>
 
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile dropdown */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={mobileMenuVariants}
+            initial={{ opacity: 0, y: "-100%" }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: "-100%" }}
             transition={{ duration: 0.3 }}
             className="md:hidden bg-neutral-900 border-t border-neutral-700"
           >
@@ -164,7 +207,7 @@ const Navbar: React.FC = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 };
 

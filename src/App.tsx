@@ -14,24 +14,30 @@ import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
-    <>
+    // full‑screen dark background + white text
+    <div className="bg-neutral-900 text-white min-h-screen flex flex-col">
       <Router>
         <ScrollToTop />
         <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<LearnMore />} />
-          <Route path="/learn-more" element={<LearnMore />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/skateparks" element={<Skateparks />} />
-          <Route path="/skateparks/:id" element={<SkateparkPage />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/diy" element={<Diy />} />
-          <Route path="/new" element={<New />} />
-        </Routes>
+
+        {/* make main grow so footer sticks to bottom */}
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<LearnMore />} />
+            <Route path="/learn-more" element={<LearnMore />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/skateparks" element={<Skateparks />} />
+            <Route path="/skateparks/:id" element={<SkateparkPage />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/diy" element={<Diy />} />
+            <Route path="/new" element={<New />} />
+          </Routes>
+        </main>
+
         <Footer />
       </Router>
-    </>
+    </div>
   );
 }
 
