@@ -8,7 +8,7 @@ import {
   User,
   Menu,
   X,
-  Hammer,
+  // Hammer,
   Trash2,
 } from "lucide-react";
 import { PiBroomBold } from "react-icons/pi";
@@ -81,7 +81,7 @@ const Navbar: React.FC = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex md:order-1 w-full md:w-auto items-center justify-center mt-4 md:mt-0">
-          <ul className="flex flex-col md:flex-row md:space-x-8 text-sm font-medium">
+          <ul className="flex flex-col md:flex-row md:space-x-8 text-sm font-bold">
             {navLinks.map((link) => (
               <li key={link.to}>
                 <NavLink
@@ -94,7 +94,6 @@ const Navbar: React.FC = () => {
                     }`
                   }
                 >
-                  {link.icon}
                   {link.label}
                 </NavLink>
               </li>
@@ -110,7 +109,7 @@ const Navbar: React.FC = () => {
                   }`
                 }
               >
-                <Hammer className="w-4 h-4" />
+                {/* <Hammer className="w-4 h-4" /> */}
                 DIY
               </NavLink>
             </li>
