@@ -84,7 +84,7 @@ const LearnMore: React.FC = () => {
             <p className="text-gray-300 mb-4 text-base sm:text-lg">
               Damage to public skateparks not only ruins the experience for
               skaters — it puts people at risk for injury. Here’s one example of
-              vandalism that occurred at Mat Hoffman Park.
+              vandalism that occurred at Blake Baldwin Skatepark.
             </p>
             <div className="bg-neutral-800 border border-red-600 rounded-2xl p-6 shadow-lg mt-6">
               <div className="flex items-center gap-3 mb-3">
