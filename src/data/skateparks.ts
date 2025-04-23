@@ -53,4 +53,12 @@ export const skateparks: Skatepark[] = [
     imageUrl:
       "https://www.concretedisciples.com/media/reviews/photos/original/31/92/5e/south-lakes-skate-court-86-1435681543.webp",
   },
+  {
+    name: "Route 66 Skate Court",
+    address: "9901 NW 23rd, Oklahoma City, OK 73141",
+    description:
+      "Geared toward beginner and intermediate skaters, this skate court features above-ground ramps, slides, and rails. Located in a larger park with picnic areas, a playground, and more.",
+    imageUrl:
+      "https://assets.simpleviewinc.com/simpleview/image/upload/crm/oklahoma/Route66-Oct2010-24--5db47ef95056a36_5db48063-5056-a36a-06dfc215fc3627e7.jpg",
+  },
 ];

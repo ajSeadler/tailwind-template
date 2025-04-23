@@ -9,7 +9,7 @@ const Projects: React.FC = () => {
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <header className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-teal-400">
+          <h1 className="text-5xl font-bold text-teal-400">
             Events & Cleanups
           </h1>
           <p className="text-gray-400 mt-3 text-sm sm:text-base">

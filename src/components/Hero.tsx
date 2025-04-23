@@ -105,7 +105,8 @@ const Hero: React.FC = () => {
           className="mb-4 sm:mb-6 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight text-gray-900 dark:text-white mt-15"
           variants={scaleIn}
         >
-          We clean skateparks <span className="text-teal-500">(</span>and spots
+          Keep skateparks clean <span className="text-teal-500">(</span>and
+          spots
           <span className="text-teal-500">)</span>.
         </motion.h1>
 
