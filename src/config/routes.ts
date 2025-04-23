@@ -5,4 +5,5 @@ export const routes = [
   { to: "/projects", label: "Events" },
   { to: "/skateparks", label: "Skateparks" },
   { to: "/contact", label: "Contact" },
+  { to: "/diy", label: "DIY" },
 ];

@@ -11,6 +11,7 @@ import Diy from "./components/Diy";
 import SkateparkPage from "./pages/SkateparkPage";
 import New from "./pages/New";
 import ScrollToTop from "./components/ScrollToTop";
+import NewsletterPage from "./pages/NewsletterPage";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/diy" element={<Diy />} />
             <Route path="/new" element={<New />} />
+            <Route path="/newsletter" element={<NewsletterPage />} />
           </Routes>
         </main>
 

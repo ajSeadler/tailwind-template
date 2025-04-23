@@ -35,6 +35,7 @@ const navLinks = [
     icon: <PiBroomBold className="w-4 h-4" />,
   },
   { to: "/contact", label: "Contact", icon: <Mail className="w-4 h-4" /> },
+  { to: "/diy", label: "DIY", icon: <Mail className="w-4 h-4" /> },
 ];
 
 // stagger container for desktop links
@@ -108,6 +109,16 @@ const Navbar: React.FC = () => {
             <FaYoutube className="w-5 h-5" />
           </motion.a>
 
+          {/* Fancy isolated Newsletter button */}
+          <motion.div variants={linkItem} className="flex items-center">
+            <NavLink
+              to="/newsletter"
+              className="py-2 px-4 rounded-full text-sm font-semibold text-black bg-teal-500 shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-teal-500"
+            >
+              Subscribe to Newsletter
+            </NavLink>
+          </motion.div>
+
           <button
             onClick={() => setMobileMenuOpen((v) => !v)}
             className="md:hidden text-gray-300"
@@ -144,20 +155,6 @@ const Navbar: React.FC = () => {
               </NavLink>
             </motion.li>
           ))}
-          <motion.li variants={linkItem}>
-            <NavLink
-              to="/diy"
-              className={({ isActive }) =>
-                `flex items-center gap-1 py-2 md:py-0 transition-colors ${
-                  isActive
-                    ? "text-teal-400"
-                    : "text-gray-300 hover:text-teal-400"
-                }`
-              }
-            >
-              DIY
-            </NavLink>
-          </motion.li>
         </motion.ul>
       </nav>
 
@@ -190,18 +187,12 @@ const Navbar: React.FC = () => {
                 </NavLink>
               ))}
               <NavLink
-                to="/diy"
+                to="/newsletter"
                 onClick={() => setMobileMenuOpen(false)}
-                className={({ isActive }) =>
-                  `flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium ${
-                    isActive
-                      ? "bg-teal-400 text-black"
-                      : "bg-teal-300 text-black hover:bg-teal-500"
-                  }`
-                }
+                className="flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium bg-teal-500 text-black hover:bg-teal-600"
               >
                 <User className="w-4 h-4" />
-                DIY
+                Newsletter
               </NavLink>
             </div>
           </motion.div>
