@@ -9,6 +9,7 @@ import {
   Menu,
   X,
   Trash2,
+  Wrench,
 } from "lucide-react";
 import { PiBroomBold } from "react-icons/pi";
 import { FaInstagram, FaYoutube } from "react-icons/fa";
@@ -35,16 +36,14 @@ const navLinks = [
     icon: <PiBroomBold className="w-4 h-4" />,
   },
   { to: "/contact", label: "Contact", icon: <Mail className="w-4 h-4" /> },
-  { to: "/diy", label: "DIY", icon: <Mail className="w-4 h-4" /> },
+  { to: "/diy", label: "DIY", icon: <Wrench className="w-4 h-4" /> },
 ];
 
-// stagger container for desktop links
 const linkContainer: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.08 } },
 };
 
-// individual link pop‑in
 const linkItem: Variants = {
   hidden: { opacity: 0, y: -10 },
   visible: {
@@ -58,13 +57,11 @@ const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
 
-  // map scrollY [0,150]px → bgColor from 20% to 90% opacity
   const bgColor = useTransform(
     scrollY,
     [0, 150],
     ["rgba(17,24,39,0.2)", "rgba(17,24,39,0.9)"]
   );
-  // smooth it with a spring
   const springBg = useSpring(bgColor, { stiffness: 100, damping: 20 });
 
   return (
@@ -82,7 +79,7 @@ const Navbar: React.FC = () => {
           <span className="hidden sm:inline">OKCS</span>
         </NavLink>
 
-        {/* Social icons + mobile menu button */}
+        {/* Right side (icons, newsletter, menu button) */}
         <div className="flex items-center gap-4 md:order-2">
           <motion.a
             href="https://instagram.com/yourpage"
@@ -109,16 +106,17 @@ const Navbar: React.FC = () => {
             <FaYoutube className="w-5 h-5" />
           </motion.a>
 
-          {/* Fancy isolated Newsletter button */}
-          <motion.div variants={linkItem} className="flex items-center">
+          {/* Newsletter CTA */}
+          <motion.div variants={linkItem}>
             <NavLink
               to="/newsletter"
-              className="py-2 px-4 rounded-full text-sm font-semibold text-black bg-teal-500 shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-teal-500"
+              className="py-2 px-4 rounded-full text-sm font-semibold text-black bg-teal-500 shadow-lg transition-all hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-teal-500"
             >
               Subscribe to Newsletter
             </NavLink>
           </motion.div>
 
+          {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen((v) => !v)}
             className="md:hidden text-gray-300"
@@ -132,9 +130,9 @@ const Navbar: React.FC = () => {
           </button>
         </div>
 
-        {/* Desktop links */}
+        {/* Desktop Links */}
         <motion.ul
-          className="hidden md:flex md:order-1 w-full md:w-auto items-center justify-center mt-4 md:mt-0 space-x-8 text-sm font-bold"
+          className="hidden md:flex md:order-1 w-full md:w-auto items-center justify-center mt-4 md:mt-0 space-x-10 text-sm font-bold"
           initial="hidden"
           animate="visible"
           variants={linkContainer}
@@ -158,7 +156,7 @@ const Navbar: React.FC = () => {
         </motion.ul>
       </nav>
 
-      {/* Mobile dropdown */}
+      {/* Mobile Dropdown Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
